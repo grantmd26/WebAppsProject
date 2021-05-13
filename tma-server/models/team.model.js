@@ -7,7 +7,7 @@ class Team{
 
     create(teamName, manager){
         const id = shortid.generate();
-        let team = {'team-name':teamName, 'manager':manager}; 
+        let team = {'team-name':teamName, 'manager':manager, 'roster':[]}; 
         this.teams[id] = team;
         console.log(this.teams);
         return id;
@@ -23,16 +23,25 @@ class Team{
         }
     }
 
-    getRoster(id, teamRoster){
+    setRoster(id, player){
         if(this.teams[id]){
-            let roster = {'teamRoster':teamRoster};
-            return roster;
+            this.teams[id].roster.push(player)
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    getRoster(id){
+        if( this.teams[id] ){
+            return this.teams[id].roster
         }
         else{
             return null;
         }
     }
-
+    
 }
 
 module.exports = new Team();

@@ -81,7 +81,7 @@ const joinTeam = function() {
 }
 
 const teamPage = async function() {
-    const response = await fetch(`http://localhost:3000/api/team/${teamID}`);
+    const response = await fetch(`http://localhost:3001/api/team/${teamID}`);
     const data = await response.json();
     teamName = data['team-name'];
     const view = document.getElementById('view');
@@ -139,6 +139,9 @@ const rosterPage = function() {
                            View the Roster.
                         </p>
                         <hr class='my-4'>
+                    </div>
+                    <div>
+                        <ul id='roster-list'>${await getListItems() }</ul>
                     </div>
                     <div>
                         <input id='roster' type=text>

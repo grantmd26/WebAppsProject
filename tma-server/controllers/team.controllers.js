@@ -24,19 +24,20 @@ class Controllers{
     }
 
     addRoster(request, response){
-        const id = request.params.id;
-        const player = request.params.teamRoster;
-        const data = team.getRoster(id, player);
-        if(data){
-            for(i=0; i < data.roster.length; i++){
-                data.roster.push(roster);   
-            }
-            response.json(data);
+        const id = request.query.id;
+        const player = request.query.player;
+        //console.log(request.query);
+        //console.log('id', id, 'player', player);
+        const isSet = team.setRoster(id, player);
+        //console.log('isSet', isSet);
+        if (isSet){
+            const roster = team.getRoster(id);
+            response.json({ 'success': true, ...roster}) 
         }
         else{
-            response.json({'success':false})
-        }      
-    }
+            response.json( {'success': false} )
+        }
+    } 
 }
 
 module.exports = new Controllers();

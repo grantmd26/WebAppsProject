@@ -3,7 +3,7 @@ window.onload = homePage;
 async function newTeam() {
     teamName = getTeamName();
     managerName = getManagerName();
-    const url = `http://localhost:3000/api/team/new?teamName=${teamName}&manager=${managerName}`;
+    const url = `http://localhost:3001/api/team/new?teamName=${teamName}&manager=${managerName}`;
     const response = await fetch(url);
     const data = await response.json();
     teamID = data.teamID;
@@ -13,7 +13,7 @@ async function newTeam() {
 
 async function join(){
     teamID = getTeamID();
-    const response = await fetch(`http://localhost:3000/api/team/${teamID}`);
+    const response = await fetch(`http://localhost:3001/api/team/${teamID}`);
     const data = await response.json();
     if(data.success){
         await teamPage();
@@ -25,13 +25,23 @@ async function join(){
 
 async function addRoster() {
     teamRoster = getRoster();
-    teamID = getTeamID();
-    const response = await fetch(`http://localhost:3000/api/team/roster?id=${teamID}&playerName=${teamRoster}`);
+    const response = await fetch(`http://localhost:3001/api/team/roster?id=${teamID}&player=${teamRoster}`);
     const data = await response.json();
+    console.log(data);
     if(data.success){
         rosterPage();
     }
     else{
         rosterPage();
     }
+}
+
+async function getListItems(){
+    let li = ''
+    const response = await fetch(`http://localhost:3001/api/team/${teamID}`);
+    const data = await response.json()
+    for (let i of data.roster){
+        li += `<li>${i}</li>`
+    }
+    return li;
 }
