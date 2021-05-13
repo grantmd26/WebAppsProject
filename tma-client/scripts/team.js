@@ -24,24 +24,25 @@ async function join(){
 }
 
 async function addRoster() {
-    teamRoster = getRoster();
+    teamRoster = getPlayer();
     const response = await fetch(`http://localhost:3001/api/team/roster?id=${teamID}&player=${teamRoster}`);
     const data = await response.json();
     console.log(data);
     if(data.success){
-        rosterPage();
+       await rosterPage();
     }
     else{
-        rosterPage();
+       await rosterPage();
     }
 }
 
-async function getListItems(){
+async function getRoster(){
     let li = ''
     const response = await fetch(`http://localhost:3001/api/team/${teamID}`);
-    const data = await response.json()
-    for (let i of data.roster){
-        li += `<li>${i}</li>`
+    const {roster} = await response.json();
+    console.log(roster);
+    for (let i of roster){
+        li += `<li>${i}</li>`;
     }
     return li;
 }

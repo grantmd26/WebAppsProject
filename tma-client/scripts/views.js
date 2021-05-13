@@ -126,11 +126,26 @@ const schedulePage = function() {
                         </p>
                         <hr class='my-4'>
                     </div>
+                    <div>
+                        <ul>
+                            <li> Practice MWF from 5pm - 7pm </li>
+                            <li> Game this Thursday at 7pm </li>
+                            <li> Tournament this Saturday starts at 9am </li>
+                        <ul>
+                    </div>
+                    <div>
+                        <input id='schedule' type=text>
+                        <button class='btn bg-dark text-light' id='add-schedule'> Add </button>
+                    </div>
+                    <div>
+                        <button class='btn bg-dark text-light' id='back'> Back </button>
+                    </div>
                 </div>`
     view.innerHTML = html;
+    addController('back');
 }
 
-const rosterPage = function() {
+const rosterPage = async function() {
     const view = document.getElementById('view');
     const html = `<div class='container'>
                     <div class='jumbotron'>
@@ -141,29 +156,48 @@ const rosterPage = function() {
                         <hr class='my-4'>
                     </div>
                     <div>
-                        <ul id='roster-list'>${await getListItems() }</ul>
+                        <ul> ${ getRoster() } </ul>
                     </div>
                     <div>
                         <input id='roster' type=text>
                         <button class='btn bg-dark text-light' id='add-roster'> Add </button>
                     </div>
+                    <div>
+                        <button class='btn bg-dark text-light' id='back'> Back </button>
+                    </div>
                 </div>`
     view.innerHTML = html;
     addController('add-roster');
+    addController('back');
 }
 
 const announcementsPage = function(){
     const view = document.getElementById('view');
     const html = `<div class='container'>
                     <div class='jumbotron'>
-                        <h1>Schedule</h1>
+                        <h1>Announcements</h1>
                         <p> 
-                            Find upcoming games, tournaments, and other events here.
+                            Check here for announcements.
                         </p>
                         <hr class='my-4'>
                     </div>
+                    <div>
+                        <ul>
+                            <li> Ted can't make it to the game </li>
+                            <li> Practice canceled Wednesday </li>
+                            <li> Wear away jersey for tournament on Saturday </li>
+                        <ul>
+                    </div>
+                    <div>
+                        <input id='schedule' type=text>
+                        <button class='btn bg-dark text-light' id='add-announcement'> Add </button>
+                    </div>
+                    <div>
+                        <button class='btn bg-dark text-light' id='back'> Back </button>
+                    </div>
                 </div>`
     view.innerHTML = html;
+    addController('back');
 }
 
 const viewTeam = function() {

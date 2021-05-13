@@ -8,6 +8,7 @@ const getCallbacks = function (){
     callbacks['roster-button'] = rosterPage;
     callbacks['announcements-button'] = announcementsPage;
     callbacks['add-roster'] = addRoster;
+    callbacks['back'] = teamPage;
     return callbacks;
 } 
 
@@ -25,4 +26,4 @@ const getManagerName = () => document.getElementById('manager-name').value;
 
 const getTeamID = () => document.getElementById('team-code').value;
 
-const getRoster = () => document.getElementById('roster').value;
+const getPlayer = () => document.getElementById('roster').value;
