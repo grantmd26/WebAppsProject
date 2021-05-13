@@ -28,12 +28,7 @@ async function addRoster() {
     const response = await fetch(`http://localhost:3001/api/team/roster?id=${teamID}&player=${teamRoster}`);
     const data = await response.json();
     console.log(data);
-    if(data.success){
-       await rosterPage();
-    }
-    else{
-       await rosterPage();
-    }
+    await rosterPage();
 }
 
 async function getRoster(){

@@ -137,7 +137,7 @@ const schedulePage = function() {
                         <input id='schedule' type=text>
                         <button class='btn bg-dark text-light' id='add-schedule'> Add </button>
                     </div>
-                    <div>
+                    <div class='container d-flex p-3 justify-content-center'>
                         <button class='btn bg-dark text-light' id='back'> Back </button>
                     </div>
                 </div>`
@@ -156,13 +156,13 @@ const rosterPage = async function() {
                         <hr class='my-4'>
                     </div>
                     <div>
-                        <ul> ${ getRoster() } </ul>
+                        <ul> ${ await getRoster() } </ul>
                     </div>
                     <div>
                         <input id='roster' type=text>
                         <button class='btn bg-dark text-light' id='add-roster'> Add </button>
                     </div>
-                    <div>
+                    <div class='container d-flex p-3 justify-content-center'>
                         <button class='btn bg-dark text-light' id='back'> Back </button>
                     </div>
                 </div>`
@@ -192,7 +192,7 @@ const announcementsPage = function(){
                         <input id='schedule' type=text>
                         <button class='btn bg-dark text-light' id='add-announcement'> Add </button>
                     </div>
-                    <div>
+                    <div class='container d-flex p-3 justify-content-center'>
                         <button class='btn bg-dark text-light' id='back'> Back </button>
                     </div>
                 </div>`
