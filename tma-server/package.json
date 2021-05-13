@@ -1,0 +1,14 @@
+{
+    "name": "tma-backend",
+    "version": "0.0.1",
+    "description": "Backend for tma app",
+    "author": "Nick Hall",
+    "main": "app.js",
+    "scripts": {
+        "start": "npm install && node app"
+    },
+    "dependencies": {
+        "express": "*",
+        "shortid": "*"
+    }
+}
