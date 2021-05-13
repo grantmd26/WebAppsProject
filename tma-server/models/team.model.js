@@ -21,7 +21,18 @@ class Team{
         else{
             return null;
         }
-    }    
+    }
+
+    getRoster(id, teamRoster){
+        if(this.teams[id]){
+            let roster = {'teamRoster':teamRoster};
+            return roster;
+        }
+        else{
+            return null;
+        }
+    }
+
 }
 
 module.exports = new Team();

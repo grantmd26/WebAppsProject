@@ -22,3 +22,16 @@ async function join(){
         homePage();
     }
 }
+
+async function addRoster() {
+    teamRoster = getRoster();
+    teamID = getTeamID();
+    const response = await fetch(`http://localhost:3000/api/team/roster?id=${teamID}&playerName=${teamRoster}`);
+    const data = await response.json();
+    if(data.success){
+        rosterPage();
+    }
+    else{
+        rosterPage();
+    }
+}

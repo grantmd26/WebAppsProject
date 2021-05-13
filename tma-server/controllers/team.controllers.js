@@ -22,6 +22,21 @@ class Controllers{
             response.json({"success": false});
         }
     }
+
+    addRoster(request, response){
+        const id = request.params.id;
+        const player = request.params.teamRoster;
+        const data = team.getRoster(id, player);
+        if(data){
+            for(i=0; i < data.roster.length; i++){
+                data.roster.push(roster);   
+            }
+            response.json(data);
+        }
+        else{
+            response.json({'success':false})
+        }      
+    }
 }
 
 module.exports = new Controllers();

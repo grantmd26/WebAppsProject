@@ -119,7 +119,7 @@ const teamPage = async function() {
 const schedulePage = function() {
     const view = document.getElementById('view');
     const html = `<div class='container'>
-                    <div class='jumbotron'
+                    <div class='jumbotron'>
                         <h1>Schedule</h1>
                         <p> 
                             Find upcoming games, tournaments, and other events here.
@@ -133,21 +133,26 @@ const schedulePage = function() {
 const rosterPage = function() {
     const view = document.getElementById('view');
     const html = `<div class='container'>
-                    <div class='jumbotron'
-                        <h1>Schedule</h1>
+                    <div class='jumbotron'>
+                        <h1>Roster</h1>
                         <p> 
-                            Find upcoming games, tournaments, and other events here.
+                           View the Roster.
                         </p>
                         <hr class='my-4'>
                     </div>
+                    <div>
+                        <input id='roster' type=text>
+                        <button class='btn bg-dark text-light' id='add-roster'> Add </button>
+                    </div>
                 </div>`
     view.innerHTML = html;
+    addController('add-roster');
 }
 
 const announcementsPage = function(){
     const view = document.getElementById('view');
     const html = `<div class='container'>
-                    <div class='jumbotron'
+                    <div class='jumbotron'>
                         <h1>Schedule</h1>
                         <p> 
                             Find upcoming games, tournaments, and other events here.
